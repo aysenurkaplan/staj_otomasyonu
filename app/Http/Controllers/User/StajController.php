@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Duyuru;
-use App\Http\Requests\DuyuruCreateRequest;
-use App\Http\Requests\DuyuruUpdateRequest;
+use App\Http\Requests\StajCreateRequest;
+use App\Models\Staj;
 
-
-class KomiteController extends Controller
+class StajController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,8 @@ class KomiteController extends Controller
      */
     public function index()
     {
-        $duyurus=Duyuru::paginate(5);
-        return view('admin.duyuru.list', compact('duyurus'));
+        $stajs=Staj::paginate(5);
+        return view('user.staj.create', compact('stajs'));
     }
 
     /**
@@ -29,7 +27,7 @@ class KomiteController extends Controller
      */
     public function create()
     {
-        return view('admin.duyuru.create');
+        return view('user.staj.create');
     }
 
     /**
@@ -38,11 +36,11 @@ class KomiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DuyuruCreateRequest $request)
+    public function store(StajCreateRequest $request)
     {
-        Duyuru::create($request->post());
+        Staj::create($request->post());
 
-        return redirect()->route('duyurus.index')->withSuccess('Duyuru Başarıyla Oluşturuldu');
+        return redirect()->route('stajs.index')->withSuccess('Staj Başarıyla Oluşturuldu');
     }
 
     /**
@@ -64,8 +62,7 @@ class KomiteController extends Controller
      */
     public function edit($id)
     {
-        $duyuru = Duyuru::find($id) ?? abort(404,'Duyuru Bulunamadı');
-        return view('admin.duyuru.edit',compact('duyuru'));
+        //
     }
 
     /**
@@ -75,11 +72,9 @@ class KomiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(DuyuruUpdateRequest $request, $id)
-    { 
-        $duyuru = Duyuru::find($id) ?? abort(404,'Duyuru Bulunamadı');
-        Duyuru::where('id',$id)->update($request->except(['_method','_token']));
-        return redirect()->route('duyurus.index')->withSuccess('Duyuru güncelleme işlemi başarıyla gerçekleşti');
+    public function update(Request $request, $id)
+    {
+        //
     }
 
     /**
@@ -90,8 +85,6 @@ class KomiteController extends Controller
      */
     public function destroy($id)
     {
-        $duyuru = Duyuru::find($id) ?? abort(404,'Duyuru Bulunamadı');
-        $duyuru->delete();
-        return redirect()->route('duyurus.index')->withSuccess('Duyuru silme işlemi başarıyla gerçekleşti');
+        //
     }
 }

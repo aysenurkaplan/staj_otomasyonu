@@ -11,7 +11,7 @@
                 <th scope="col">Tarih</th>
                 <th scope="col">Başlık</th>
                 <th scope="col">Duyuru</th>
-                <th scope="col" style="width: 100px">İşlemler</th>
+                <th scope="col">İşlemler</th>
 
               </tr>
             </thead>

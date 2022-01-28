@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">Duyuru Oluştur </x-slot>
-    
+
     <div class="card">
         <div class="card-body">
             <form method="POST"  action="{{route('duyurus.store')}}">
@@ -11,11 +11,11 @@
                 </div>
                 <div class="form-group">
                     <label>Duyuru Başlığı</label>
-                    <input type="text" name="baslık" class="form-control" >
+                    <input type="text" name="baslık" class="form-control" value="{{old('baslık')}}" >
                 </div>
                 <div class="form-group">
                     <label>Duyuru Metni</label>
-                    <textarea name="description" class="form-control" rows="5" required></textarea>
+                    <textarea name="description" class="form-control" rows="5" >{{old('description')}}</textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success btn-block" >Duyuru Oluştur</button>

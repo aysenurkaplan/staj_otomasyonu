@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Duyuru extends Model
 {
     use HasFactory;
+
+    protected $fillable=['tarih','baslık','description'];
 }

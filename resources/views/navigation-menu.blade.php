@@ -101,6 +101,19 @@
                             </x-jet-dropdown-link>
 
                             @endif
+
+                            @if(auth()->user()->type=='user')
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                Staj İşlemleri
+                            </div>
+
+                            <x-jet-dropdown-link href="{{ route('stajs.create') }}">
+                                Staj Başvuru
+                            </x-jet-dropdown-link>
+
+                            @endif
+
+
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
