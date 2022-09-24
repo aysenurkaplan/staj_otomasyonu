@@ -17,7 +17,7 @@ class isUser
     public function handle(Request $request, Closure $next)
     {
         if(auth()->user()->type!=='user'){
-            return redirect()->route('dashboard');
+            return redirect()->route('welcome');
         }
         return $next($request);
     }

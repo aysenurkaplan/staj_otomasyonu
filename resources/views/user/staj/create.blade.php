@@ -26,7 +26,7 @@
                     <input type="text" name="telefon" class="form-control" value="{{old('telefon')}}" >
                 </div>
                 <div class="form-group">
-                    <label>Firma Adı</label>
+                    <label> Firma Adı</label>
                     <input type="text" name="firma_ad" class="form-control" value="{{old('firma_ad')}}" >
                 </div>
                 <div class="form-group">
