@@ -6,7 +6,7 @@
        
         <a href="{{route('stajs.create')}}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Yeni Staj Başvurusu</a>
         <a href=# class="btn btn-sm btn-primary"><i class="fa fa-pen"></i>Düzenle</a>
-        <li >  </li>
+        
 
      
 </x-app-layout>
