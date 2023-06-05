@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StajCreateRequest;
+use App\Http\Requests\StajUpdateRequest;
 use App\Models\Staj;
 
 class StajController extends Controller
@@ -17,7 +18,9 @@ class StajController extends Controller
     public function index()
     {
         $stajs=Staj::paginate(5);
-        return view('user.staj.create', compact('stajs'));
+        
+        return view('user.staj.list', compact('stajs'));
+    
     }
 
     /**
@@ -62,7 +65,8 @@ class StajController extends Controller
      */
     public function edit($id)
     {
-        //
+        $staj = Staj::find($id) ?? abort(404,'Staj Bulunamadı');
+        return view('user.staj.edit',compact('staj'));
     }
 
     /**
@@ -72,9 +76,11 @@ class StajController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StajUpdateRequest $request, $id)
     {
-        //
+        $staj = Staj::find($id) ?? abort(404,'Staj Bulunamadı');
+        Staj::where('id',$id)->update($request->except(['_method','_token']));
+        return redirect()->route('stajs.index')->withSuccess('Staj güncelleme işlemi başarıyla gerçekleşti');
     }
 
     /**
@@ -85,6 +91,8 @@ class StajController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $staj = Staj::find($id) ?? abort(404,'Staj Bulunamadı');
+        $staj->delete();
+        return redirect()->route('stajs.index')->withSuccess('Staj silme işlemi başarıyla gerçekleşti');
     }
 }

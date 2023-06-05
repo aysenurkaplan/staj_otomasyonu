@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="/uploads/logo.png" class="block h-9 w-auto" />
                     </a>
                 </div>
 
@@ -17,6 +17,7 @@
                     </x-jet-nav-link>
                 </div>
             </div>
+            
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
@@ -107,7 +108,7 @@
                                 Staj İşlemleri
                             </div>
 
-                            <x-jet-dropdown-link href="{{ route('stajs.create') }}">
+                            <x-jet-dropdown-link href="{{ route('stajs.index') }}">
                                 Staj Başvuru
                             </x-jet-dropdown-link>
 

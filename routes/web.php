@@ -20,5 +20,6 @@ Route::group(['middleware' => ['auth','isAdmin'],'prefix'=>'admin'], function(){
 });
 
 Route::group(['middleware' => ['auth','isUser'],'prefix'=>'user'], function(){
+   Route::get('stajs/{id}',[StajController::class,'destroy'])->whereNumber('id')->name('stajs.destroy');
    Route::resource('stajs',StajController::class);
 });
