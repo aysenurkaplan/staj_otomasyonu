@@ -14,7 +14,7 @@
       <div class="card-body">
         <h5 class="card-title">Staj İşlemleri</h5>
         <p class="card-text">Son başvuru tarihine kadar belgelerinizde düzenleme veya silme işlemi yapabilirsiniz başvuru süresi dolduktan sonra bu işlem kullanıma kapatılacaktır. Girilen bilgilerin doğruluğunun sorumluluğu öğrenciye aittir.</p>
-      @foreach($stajs as $staj ) 
+      @foreach ($stajs as $staj)
         <a href="{{route('stajs.edit',$staj->id)}}" class="btn btn-primary"><i class="fa fa-pen"></i>Başvuruyu Düzenle</a>
         <a href="{{route('stajs.destroy',$staj->id)}}" class="btn btn-danger"><i class="fa fa-times"></i>Başvuruyu Temizle</a>
 @endforeach
