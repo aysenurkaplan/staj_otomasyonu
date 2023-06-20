@@ -9,6 +9,7 @@ use App\Models\Staj;
 class BasvuruController extends Controller
 {
      public function basvurular(){
+        
         $stajs=Staj::paginate(5);
         return view('admin.basvurular',compact('stajs'));
        

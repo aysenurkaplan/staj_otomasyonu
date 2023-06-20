@@ -1,7 +1,6 @@
 <x-app-layout>
-    <x-slot name="header">Duyuru Oluştur </x-slot>
-
-    <div class="card">
+    <x-slot name="header">İlan Oluştur </x-slot>
+ <div class="card">
         <div class="card-body">
             <form method="POST"  action="{{route('ilans.store')}}">
                 @csrf
@@ -18,10 +17,14 @@
                     <textarea name="description" class="form-control" rows="5" >{{old('description')}}</textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-block" >Duyuru Oluştur</button>
+                    <button type="submit" class="btn btn-dark btn-block" >İlan Oluştur</button>
                 </div>
 
             </form>
         </div>
     </div>
+    
+    </div>
+</div>
+   
 </x-app-layout>

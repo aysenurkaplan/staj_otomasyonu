@@ -15,7 +15,10 @@ class IlanController extends Controller
      */
     public function index()
     {
-        //
+        
+        $ilans=Ilan::paginate(5);
+        return view('admin.ilan.list', compact('ilans'));
+        
     }
 
     /**
@@ -25,7 +28,8 @@ class IlanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.ilan.create');
+        return view('admin.duyuru.list');
     }
 
     /**
@@ -38,7 +42,7 @@ class IlanController extends Controller
     {
          Ilan::create($request->post());
 
-        return redirect()->route('duyurus.index')->withSuccess('Duyuru Başarıyla Oluşturuldu');
+        return redirect()->route('ilans.index')->withSuccess('İlan Başarıyla Oluşturuldu');
     }
 
     /**
@@ -60,7 +64,8 @@ class IlanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ilan = Ilan::find($id) ?? abort(404,'İlan Bulunamadı');
+        return view('admin.ilan.edit',compact('ilan'));
     }
 
     /**
@@ -72,7 +77,9 @@ class IlanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $ilan = Ilan::find($id) ?? abort(404,'İlan Bulunamadı');
+        Ilan::where('id',$id)->update($request->except(['_method','_token']));
+        return redirect()->route('ilans.index')->withSuccess('İlan güncelleme işlemi başarıyla gerçekleşti');
     }
 
     /**
@@ -83,6 +90,8 @@ class IlanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ilan = Ilan::find($id) ?? abort(404,'İlan Bulunamadı');
+        $ilan->delete();
+        return redirect()->route('ilans.index')->withSuccess('İlan silme işlemi başarıyla gerçekleşti');
     }
 }

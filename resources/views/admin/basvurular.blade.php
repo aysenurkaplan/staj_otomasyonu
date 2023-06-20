@@ -23,6 +23,7 @@
             </thead>
 <tbody>
   @foreach ($stajs as $staj)
+  <tr>
       <td>{{$staj->ad}}</td>
       <td>{{$staj->soyad}}</td>
       <td>{{$staj->ogrenci_no}}</td>
@@ -36,8 +37,8 @@
       <td>{{$staj->staj_turu}}</td>
       <td>{{$staj->belge}}</td>
 
-       <td><a href="{{route('basvurular',$staj->id)}}" class="btn btn-sm btn-primary">Onayla<i class="fa font-family"></i></a></td>
-                
+       <td><a href="{{route('results.create',$staj->id)}}" class="btn btn-sm btn-danger">Değerlendir<i class="fa font-family"></i></a></td>
+     </tr>           
   @endforeach
 </tbody>
  </table>

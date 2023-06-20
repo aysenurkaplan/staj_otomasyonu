@@ -5,12 +5,12 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">
-            <a href="{{route('duyurus.create')}}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Duyuru Oluştur</a>
-             <a href="{{route('ilans.create')}}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> İlan Oluştur</a>
+            <a href="{{route('duyurus.create')}}" class="btn btn-sm btn-secondary"><i class="fa fa-plus"></i> Duyuru Oluştur</a>
+      
         </h5>
         <table class="table table-bordered">
             <thead>
-              <tr>
+              <tr class="table-secondary">
                 <th scope="col">Tarih</th>
                 <th scope="col">Başlık</th>
                 <th scope="col">Duyuru</th>
@@ -20,12 +20,12 @@
             </thead>
             <tbody>
                 @foreach($duyurus as $duyuru)
-              <tr>
+              <tr class="table-light">
                 <td>{{$duyuru->tarih}}</td>
                 <td>{{$duyuru->baslık}}</td>
                 <td>{{$duyuru->description}}</td>
                 <td>
-                   <a href="{{route('duyurus.edit',$duyuru->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
+                   <a href="{{route('duyurus.edit',$duyuru->id)}}" class="btn btn-sm btn-info"><i class="fa fa-pen"></i></a>
                    <a href="{{route('duyurus.destroy',$duyuru->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                 </td>
               </tr>
@@ -35,7 +35,7 @@
           {{$duyurus->links()}}
     </div>
 </div>
-  </div>
+</div>
   <div class="col-sm-6">
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg"> <h2>Staj Başvuruları</h2> </div>
 
@@ -51,41 +51,28 @@
             </thead>
 <tbody>
   @foreach ($stajs as $staj)
+  <tr>
       <td>{{$staj->ad}}</td>
       <td>{{$staj->soyad}}</td>
       <td>{{$staj->ogrenci_no}}</td>
-       <td><p><a class="link-opacity-100" href="{{route('basvurular')}}"> Detay Görüntüle</a></p></td>
-                
+       <td><p><a class="link-opacity-100" href="{{route('basvurular',$stajs)}}"> Detay Görüntüle</a></p></td>
+    </tr>            
   @endforeach
 </tbody>
  </table>
   {{ $stajs->links()}}
-jhjhhjbhjbhb İlan Oluştur.
-    <div class="card">
-        <div class="card-body">
-            <form method="POST"  action="{{route('duyurus.store')}}">
-                @csrf
-                <div class="form-group">
-                    <label>Duyuru Tarihi</label>
-                    <input type="datetime-local" name="tarih" class="form-control" >
-                </div>
-                <div class="form-group">
-                    <label>Duyuru Başlığı</label>
-                    <input type="text" name="baslık" class="form-control" value="{{old('baslık')}}" >
-                </div>
-                <div class="form-group">
-                    <label>Duyuru Metni</label>
-                    <textarea name="description" class="form-control" rows="5" >{{old('description')}}</textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-block" >Duyuru Oluştur</button>
-                </div>
 
-            </form>
-        </div>
+  <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Staj İlanı</h5>
+        <p class="card-text">Staj ilanı oluşturabilirsiniz.</p>
+        <a href="{{route('ilans.create')}}" class="btn btn-light"><i class="fa fa-plus"></i> Staj İlanı Oluştur</a>
+      </div>
     </div>
 
 
+      
   </div>
     </div>
+  
 </x-app-layout>

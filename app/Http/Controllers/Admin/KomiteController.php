@@ -18,7 +18,9 @@ class KomiteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $stajs=Staj::paginate(5);
+    {   
+       
+        $stajs=Staj::paginate(5);
         $duyurus=Duyuru::paginate(5);
         return view('admin.duyuru.list', compact('duyurus','stajs'));
         

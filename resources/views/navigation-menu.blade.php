@@ -97,9 +97,17 @@
                                 Komisyon Üyeleri İşlemleri
                             </div>
 
+                             <x-jet-dropdown-link href="{{ route('basvurular') }}">
+                                Staj Başvuruları
+                            </x-jet-dropdown-link>
                             <x-jet-dropdown-link href="{{ route('duyurus.index') }}">
                                 Duyurular
                             </x-jet-dropdown-link>
+                             <x-jet-dropdown-link href="{{ route('ilans.index') }}">
+                                İlanlar
+                            </x-jet-dropdown-link>
+                             
+                        
 
                             @endif
 
@@ -110,6 +118,9 @@
 
                             <x-jet-dropdown-link href="{{ route('stajs.index') }}">
                                 Staj Başvuru
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="{{ route('ilanlar') }}">
+                                Staj İlanları
                             </x-jet-dropdown-link>
 
                             @endif

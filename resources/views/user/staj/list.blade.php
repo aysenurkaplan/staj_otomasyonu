@@ -1,6 +1,6 @@
  <x-app-layout>
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Staj Başvurusu</h5>
@@ -9,15 +9,47 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Staj İşlemleri</h5>
         <p class="card-text">Son başvuru tarihine kadar belgelerinizde düzenleme veya silme işlemi yapabilirsiniz başvuru süresi dolduktan sonra bu işlem kullanıma kapatılacaktır. Girilen bilgilerin doğruluğunun sorumluluğu öğrenciye aittir.</p>
       @foreach ($stajs as $staj)
-        <a href="{{route('stajs.edit',$staj->id)}}" class="btn btn-primary"><i class="fa fa-pen"></i>Başvuruyu Düzenle</a>
-        <a href="{{route('stajs.destroy',$staj->id)}}" class="btn btn-danger"><i class="fa fa-times"></i>Başvuruyu Temizle</a>
+        <a href="{{route('stajs.edit',$staj->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i> Başvuruyu Düzenle</a>
+        <a href="{{route('stajs.destroy',$staj->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i>Başvuruyu Temizle</a>
 @endforeach
+
+      </div>
+    </div>
+  </div>
+   <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Başvuru Durumu</h5>
+        <p class="card-text"> </p>
+      <table class="table table-bordered">
+            <thead>
+              <tr class="table-secondary">
+                <th scope="col">Kaçıncı staj</th>
+                <th scope="col">Cevap</th>
+                <th scope="col">Açıklama</th>
+                
+
+              </tr>
+            </thead>
+            <tbody>
+                @foreach($results as $result)
+              <tr class="table-light">
+                <td>{{$result->staj_id}}</td>
+                <td>{{$result->answer}}</td>
+                <td>{{$result->description}}</td>
+                
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+          {{$results->links()}}
+    
 
       </div>
     </div>

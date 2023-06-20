@@ -9,4 +9,8 @@ class Staj extends Model
 {
     use HasFactory;
     protected $fillable=['ad','soyad','ogrenci_no','bolum','telefon','firma_ad','firma_adres','baslangic_tarihi','bitis_tarihi','toplam_gun','staj_turu','belge'];
+
+    public function results(){
+        return $this ->hasOne('App\Models\Result');
+    }
 }
