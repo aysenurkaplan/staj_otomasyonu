@@ -21,7 +21,8 @@ class ResultController extends Controller
     public function index()
     {
         
-       
+       $stajs=Staj::paginate(5);
+        return view('admin.basvurular',compact('stajs'));
        
     }
 
@@ -45,7 +46,7 @@ class ResultController extends Controller
     public function store(Request $request,$id)
     {
          Staj::find($id)->results()->create($request->all());
-         return redirect()->route('results.index')->withSuccess('Cevap Başarıyla Oluşturuldu');
+         return redirect()->route('results.index',$id)->withSuccess('Cevap Başarıyla Oluşturuldu');
     }
 
     /**
